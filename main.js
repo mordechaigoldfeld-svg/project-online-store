@@ -8,12 +8,12 @@ export const DB = process.env.DB_BASE_PATH
 
 
 
-// const app = express()
+const app = express()
 
-// app.use(express.json())
+app.use(express.json())
 
-// app.use("/cart",cartRouter)
+app.use("/cart/items",cartRouter)
 
-// app.listen(PORT,()=>{
-//     console.log("server runing...")
-// })
+app.listen(3000,()=>{
+    console.log("server runing...")
+})

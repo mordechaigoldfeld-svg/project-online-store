@@ -57,7 +57,7 @@ function inStock(body){
     if(exists.stock >= body.quantity){
         return true
     }
-    console.log("insuficient balance")
+    console.log("out of stock")
     return false
 
 }
@@ -65,24 +65,24 @@ function inStock(body){
 
 
 
-async function addedToCart(body,res){
+export async function addedToCart(body,res){
     try{
         
         const validBody = isValidBody(body);
         if(!validBody){
-          return (400,"invalid body")
+          return [400,"invalid body"]
         }
 
         if(!iscustomerExitst(validBody)){
-            return (404,`user:${validBody.customerId} not found`)
+            return [404,`user:${validBody.customerId} not found`]
         }
 
         if(!isItemExists(validBody)){
-            return (404,`product: ${validBody.productId} not found`)
+            return [404,`product: ${validBody.productId} not found`]
         }
         
         if(!inStock(validBody)){
-            return (400,"Out of stock")
+            return [400,"Out of stock"]
         }
         const added = {
             productId:validBody.productId,
@@ -92,11 +92,11 @@ async function addedToCart(body,res){
         updatedcustom["cart"].push(added)
         await writeFile(customerPath,customers)
 
-        const updatedproduct = products.find((prod)=>{return prod.productId === Number(validBody.productId)})
-        updatedproduct["stock"]-=validBody.productId
+        const updatedproduct = products.find((prod)=>{return prod.id === Number(validBody.productId)})
+        updatedproduct["stock"]-=validBody.quantity
         await writeFile(productPath,products)
-
-        return(200,"success added to cart")
+        console.log("end")
+        return [200,"success added to cart"]
 
 
     }catch(err){
@@ -105,13 +105,7 @@ async function addedToCart(body,res){
 }
 
 
-const validBody = isValidBody({customerId:"c59",productId:"102",quantity:2,test:"none"});
-
-const updatedproduct = pr.find((user)=>{return user.Id === Number(validBody.productId)})
-console.log(validBody.productId)
-// updatedproduct["stock"]-=1
-console.log(updatedproduct)
 
 
-// await console.log(addedToCart({customerId:"c59",productId:"102",quantity:2,test:"none"}))
+// await console.log(await addedToCart({customerId:"c5c9",productId:"101",quantity:1,test:"none"}))
 
