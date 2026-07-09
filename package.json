@@ -1,0 +1,25 @@
+{
+  "name": "project_online_store",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000p\u0000r\u0000o\u0000j\u0000e\u0000c\u0000t\u0000-\u0000o\u0000n\u0000l\u0000i\u0000n\u0000e\u0000-\u0000s\u0000t\u0000o\u0000r\u0000e\u0000\r\u0000 \u0000",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node --watch main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mordechaigoldfeld-svg/project-online-store.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/mordechaigoldfeld-svg/project-online-store/issues"
+  },
+  "homepage": "https://github.com/mordechaigoldfeld-svg/project-online-store#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
