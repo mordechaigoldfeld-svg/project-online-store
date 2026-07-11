@@ -1,62 +1,62 @@
 [
-    {
-        "id": 101,
-        "name": "Hyundai i10 2014",
-        "price": 28000,
-        "stock": 3
-    },
-    {
-        "id": 102,
-        "name": "Kia Picanto 2013",
-        "price": 24500,
-        "stock": 5
-    },
-    {
-        "id": 103,
-        "name": "Toyota Corolla 2009",
-        "price": 19000,
-        "stock": 2
-    },
-    {
-        "id": 104,
-        "name": "Mazda 3 2011",
-        "price": 22000,
-        "stock": 4
-    },
-    {
-        "id": 105,
-        "name": "Chevrolet Spark 2016",
-        "price": 26500,
-        "stock": 6
-    },
-    {
-        "id": 106,
-        "name": "Suzuki Swift 2012",
-        "price": 31000,
-        "stock": 3
-    },
-    {
-        "id": 107,
-        "name": "Skoda Fabia 2014",
-        "price": 29900,
-        "stock": 2
-    },
-    {
-        "id": 108,
-        "name": "Mitsubishi Attrage 2015",
-        "price": 25000,
-        "stock": 7
-    },
-    {
-        "id": 109,
-        "name": "Ford Focus 2013",
-        "price": 14000,
-        "stock": 8
-    },
-    {
-        "id": 110,
-        "name": "Nissan Micra 2015",
-        "price": 27000,
-        "stock": 4
-    }
+  {
+    "id": 101,
+    "name": "Hyundai i10 2014",
+    "price": 28000,
+    "stock": 3
+  },
+  {
+    "id": 102,
+    "name": "Kia Picanto 2013",
+    "price": 24500,
+    "stock": 4
+  },
+  {
+    "id": 103,
+    "name": "Toyota Corolla 2009",
+    "price": 19000,
+    "stock": 2
+  },
+  {
+    "id": 104,
+    "name": "Mazda 3 2011",
+    "price": 22000,
+    "stock": 4
+  },
+  {
+    "id": 105,
+    "name": "Chevrolet Spark 2016",
+    "price": 26500,
+    "stock": 6
+  },
+  {
+    "id": 106,
+    "name": "Suzuki Swift 2012",
+    "price": 31000,
+    "stock": 3
+  },
+  {
+    "id": 107,
+    "name": "Skoda Fabia 2014",
+    "price": 29900,
+    "stock": 2
+  },
+  {
+    "id": 108,
+    "name": "Mitsubishi Attrage 2015",
+    "price": 25000,
+    "stock": 7
+  },
+  {
+    "id": 109,
+    "name": "Ford Focus 2013",
+    "price": 14000,
+    "stock": 8
+  },
+  {
+    "id": 110,
+    "name": "Nissan Micra 2015",
+    "price": 27000,
+    "stock": 4
+  }
 ]

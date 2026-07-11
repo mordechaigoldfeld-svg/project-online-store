@@ -1,5 +1,6 @@
 import { read } from "node:fs"
 import {readFile,writeFile} from "../file_handler/data_handler.js"
+import { get } from "node:http"
 // import { DB } from "../main.js"
 
 
@@ -38,7 +39,6 @@ function iscustomerExitst(body){
     }
     return true
 }
-
 
 
 function isItemExists(body){
@@ -92,10 +92,10 @@ export async function addedToCart(body,res){
         updatedcustom["cart"].push(added)
         await writeFile(customerPath,customers)
 
-        const updatedproduct = products.find((prod)=>{return prod.id === Number(validBody.productId)})
-        updatedproduct["stock"]-=validBody.quantity
-        await writeFile(productPath,products)
-        console.log("end")
+        // const updatedproduct = products.find((prod)=>{return prod.id === Number(validBody.productId)})
+        // updatedproduct["stock"]-=validBody.quantity
+        // await writeFile(productPath,products)
+        // console.log("end")
         return [200,"success added to cart"]
 
 
@@ -108,4 +108,58 @@ export async function addedToCart(body,res){
 
 
 // await console.log(await addedToCart({customerId:"c5c9",productId:"101",quantity:1,test:"none"}))
+
+
+export async function getCartById(customerId) {
+    try{
+        if(!customerId.customerId){
+            return [400,"invalid query"]
+        }
+        if(!iscustomerExitst(customerId)){
+            return [404,`id:${customerId.customerId} not found`]
+        }
+        const userCart = customers.find((user)=>{return user.customerId === customerId.customerId})
+        if(userCart.cart.length === 0){
+            return[200,{message:"empty cart"}]
+        }
+        return [200,userCart.cart]
+     
+
+    }catch(err){
+        console.log(err)
+    }
+    
+}
+
+
+
+
+
+
+
+// customerId:body,productId:params
+export async function deleteItemCart(customerId,productId){
+        try{
+            const cart = await getCartById(customerId)
+            if(cart[0] !== 200){
+                return [cart[0],cart[1]]
+            }
+            const inCart = cart[1].find((item)=>{return item.productId === productId.productId})
+            if(!inCart || !productId.productId){
+                return [404,`product: ${productId.productId} not found`]
+            }
+            const currentCustom = customers.find((user)=>{return user.customerId === customerId.customerId})
+            currentCustom.cart = currentCustom.cart.filter((item)=>{return item.productId !== productId.productId})
+            await writeFile(customerPath,customers)
+
+            return[200,"succes delete item"]
+
+        }catch(err){
+            console.log(err)
+        }
+}
+
+
+
+
 
