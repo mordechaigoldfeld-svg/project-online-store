@@ -1,6 +1,4 @@
-import { read } from "node:fs"
 import {readFile,writeFile} from "../file_handler/data_handler.js"
-import { get } from "node:http"
 // import { DB } from "../main.js"
 
 
