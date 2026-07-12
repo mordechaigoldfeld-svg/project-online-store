@@ -1,6 +1,7 @@
 import express from "express"
 import cartRouter from "./routes/router_customer.js"
 import productsRouter from "./routes/router_products.js"
+import accountRouter from "./routes/router_account.js"
 
 
 const PORT = process.env.PORT || 5000
@@ -24,13 +25,13 @@ app.get("/health",(req,res)=>{
 })
 
 
-
+app.use("/account/balance",accountRouter)
 
 app.use("/products",productsRouter)
 
 
 app.use("/cart",cartRouter)
-// app.use("/",cartRouter)
+
 
 
 app.listen(PORT,()=>{

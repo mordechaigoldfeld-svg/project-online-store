@@ -2,9 +2,9 @@ import {readFile,writeFile} from "../file_handler/data_handler.js"
 // import { DB } from "../main.js"
 
 
-const customerPath = "./data/customer.json"
+const customerPath = `${process.env.DB_BASE_PATH}/customer.json`
 
-const productPath = "./data/products.json"
+const productPath = `${process.env.DB_BASE_PATH}/products.json`
 
 const customers = await readFile(customerPath)
 
@@ -160,4 +160,12 @@ export async function deleteItemCart(customerId,productId){
 
 
 
+export function getBalance(customerId){
+    if(!iscustomerExitst(customerId)){
+        return [404,`user:${customerId} not found`]
+    }
+    const customer = customers.find((user)=>{return user.customerId === customerId.customerId})
+    return [200,customer.balance]
 
+
+}
